@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import { useGameData, useGameActions } from '../lib/connect-force-hooks.js'
 import { findFinishedCells } from '../lib/connect-force-api.js'
 import ErrorMessage from './ErrorMessage.js'
-
-const gridSrc = new URL('./grid.svg', import.meta.url)
+import gridSrc from './grid.svg'
+// const gridSrc = new URL('./grid.svg', import.meta.url)
 
 /**
  * @param {object} params

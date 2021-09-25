@@ -11,11 +11,9 @@
   "scripts": {
     "format": "prettier-standard",
     "lint": "prettier-standard --check --lint && tsc",
-    "build": "parcel build --target default",
-    "client:dev": "parcel serve --target default --port 4000 --dist-dir public",
+    "build": "node src/bin/build-client.js",
     "start": "node src/bin/server.js start",
-    "server:dev": "nodemon --inspect=0.0.0.0:9229 --watch src/ --ignore src/client/ src/bin/server.js | pino-pretty --colorize --ignore hostname,pid,time,name",
-    "start:dev": "concurrently -n 'server,client' 'npm:server:dev' 'npm:client:dev'",
+    "start:dev": "nodemon --inspect=0.0.0.0:9229 --watch src/ --ignore src/client/ src/bin/server.js | pino-pretty --colorize --ignore hostname,pid,time,name",
     "migrate:up": "node src/bin/server.js migrate:up | pino-pretty --colorize --ignore hostname,pid,time,name",
     "migrate:down": "node src/bin/server.js migrate:down | pino-pretty --colorize --ignore hostname,pid,time,name",
     "migrate:make": "node src/bin/migrate-create.js",
@@ -30,10 +28,11 @@
     "express": "^4.17.1",
     "migrate-mongo": "^8.2.3",
     "mongodb": "^4.1.2",
-    "pino": "^6.13.2",
+    "pino": "^6.13.3",
     "zod": "^3.8.2"
   },
   "devDependencies": {
+    "@chialab/esbuild-plugin-html": "^0.11.35",
     "@types/cookie": "^0.4.1",
     "@types/cookie-signature": "^1.0.3",
     "@types/express": "^4.17.13",
@@ -44,9 +43,8 @@
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.3.0",
     "@types/styled-components": "^5.1.14",
-    "concurrently": "^6.2.1",
-    "nodemon": "^2.0.12",
-    "parcel": "^2.0.0-rc.0",
+    "esbuild": "^0.13.2",
+    "nodemon": "^2.0.13",
     "pino-pretty": "^7.0.1",
     "prettier-standard": "^16.4.1",
     "react": "^17.0.2",
@@ -58,16 +56,5 @@
     "standard": "^16.0.3",
     "styled-components": "^5.3.1",
     "typescript": "^4.4.3"
-  },
-  "resolutions": {
-    "@parcel/source-map": "^2.0.0-rc.7"
-  },
-  "targets": {
-    "default": {
-      "source": "./src/client/index.html",
-      "distDir": "./public/",
-      "publicUrl": "/",
-      "context": "browser"
-    }
   }
 }

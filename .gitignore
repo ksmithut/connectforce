@@ -140,5 +140,4 @@ typings/
 # End of https://www.gitignore.io/api/node,visualstudiocode,macos,linux
 
 /data
-/public
-.parcel-cache
+/build

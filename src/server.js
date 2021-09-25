@@ -6,8 +6,8 @@ import expressCookie from './lib/express-cookie.js'
 
 import { configureGameRouter } from './services/game/game.express.js'
 
-const PUBLIC_DIR = new URL('../public/', import.meta.url).pathname
-const INDEX_HTML = new URL('../public/index.html', import.meta.url).pathname
+const PUBLIC_DIR = new URL('../build/', import.meta.url).pathname
+const INDEX_HTML = new URL('../build/index.html', import.meta.url).pathname
 
 /**
  * @param {object} params

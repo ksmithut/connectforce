@@ -1,20 +1,4 @@
 services:
-  # Application
-  connectforce:
-    image: connectforce:dev
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - mongo
-    environment:
-      PORT: '3000'
-      LOG_NAME: connectforce
-      LOG_LEVEL: info
-      MONGO_URL: mongodb://mongo:27017/connectforce
-      COOKIE_SECRETS: changeme
-    ports:
-      - "3000:3000" # Application port
   mongo:
     image: arm64v8/mongo:latest
     # image: mongo:latest
