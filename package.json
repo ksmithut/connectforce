@@ -29,7 +29,7 @@
     "migrate-mongo": "^8.2.3",
     "mongodb": "^4.1.2",
     "pino": "^6.13.3",
-    "zod": "^3.8.2"
+    "zod": "^3.9.1"
   },
   "devDependencies": {
     "@chialab/esbuild-plugin-html": "^0.11.35",

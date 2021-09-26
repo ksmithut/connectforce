@@ -94,14 +94,12 @@ export function configureGameRouter ({ gameService }) {
       return
     }
     const interval = setInterval(() => {
-      res.write(renderEvent({ comment: 'ping' }))
+      res.write(renderEvent({ comment: 'keepalive' }))
     }, 15000)
-    function handleClose () {
+    req.on('close', () => {
       close?.()
       clearInterval(interval)
-    }
-    req.on('close', handleClose)
-    res.on('close', handleClose)
+    })
   })
 
   router.post('/', createGame)
